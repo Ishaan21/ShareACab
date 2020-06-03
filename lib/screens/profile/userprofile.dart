@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shareacab/shared/loading.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../main.dart';
 
 class MyProfile extends StatefulWidget {
@@ -215,7 +216,9 @@ class _MyProfileState extends State<MyProfile> {
                     children: <Widget>[
                       Expanded(
                         child: ListTile(
-                            onTap: () {},
+                            onTap: () async {
+                              await launch('tel://${mobilenum}');
+                            },
                             title: Center(
                               child: Text(
                                 'MOBILE NUMBER',
