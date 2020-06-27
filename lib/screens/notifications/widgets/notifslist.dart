@@ -5,9 +5,16 @@ import 'package:provider/provider.dart';
 import './notiftile.dart';
 import 'package:shareacab/screens/notifications/services/notifservices.dart';
 
-class NotifsList extends StatelessWidget {
+class NotifsList extends StatefulWidget {
   static FirebaseUser user;
+
+  @override
+  _NotifsListState createState() => _NotifsListState();
+}
+
+class _NotifsListState extends State<NotifsList> {
   final NotifServices _notifServices = NotifServices();
+
   Future getUserDetails(String uid, String purpose, String notifId, var response) async {
     var currentGroup;
     await Firestore.instance.collection('userdetails').document(uid).get().then((value) {
